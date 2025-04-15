@@ -1,4 +1,4 @@
-# 💻 PC Builder Recommendation System
+# 💻 AI PC Builder Component Recommendation System
 
 An AI-powered system that recommends the best compatible PC components based on user input such as budget and use case (e.g., gaming, editing, office). Built with modern technologies like *FastAPI, **FAISS, **Sentence Transformers, and **React.js*, the system enables fast, intelligent, and user-friendly custom PC configurations.
 
