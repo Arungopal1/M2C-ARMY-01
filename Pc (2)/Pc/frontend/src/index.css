@@ -1,0 +1,424 @@
+/* Simple CSS Variables */
+:root {
+    /* Core colors */
+    --primary: #4c9baf;
+    --secondary: #3498db;
+    --accent: #764ba2;
+    
+    /* Dark theme */
+    --bg-dark: #fcfcfc;
+    --bg-dark-2: #00ffff;
+    --text-light: #e1e1e6;
+    --text-light-2: hsl(0, 0%, 100%);
+    
+    /* Light theme */
+    --bg-light: #f0f2f5;
+    --bg-light-2: #e0e2e5;
+    --text-dark: #2472bf;
+    --text-dark-2: #7f8c8d;
+    
+    /* System */
+    --space: 16px;
+    --radius: 8px;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --time: 0.3s;
+  }
+  
+  [data-theme="dark"] {
+    --bg: var(--bg-dark);
+    --bg-2: var(--bg-dark-2);
+    --text: var(--text-light);
+    --text-2: var(--text-light-2);
+  }
+  
+  [data-theme="light"] {
+    --bg: var(--bg-light);
+    --bg-2: var(--bg-light-2);
+    --text: var(--text-dark);
+    --text-2: var(--text-dark-2);
+  }
+  
+  /* Base styles */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, var(--bg), var(--bg-2));
+    color: var(--text);
+    min-height: 100vh;
+    transition: all var(--time) ease;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* Containers */
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: var(--space);
+    margin-top: 70px;
+  }
+  
+  .app-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space);
+  }
+  
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: var(--space);
+    color: var(--text);
+    line-height: 1.2;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-top: var(--space);
+  }
+  
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.75rem; }
+  h4 { font-size: 1.5rem; }
+  h5 { font-size: 1.25rem; }
+  h6 { font-size: 1rem; }
+  
+  .app-description {
+    color: var(--text-2);
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: calc(var(--space) * 2);
+    max-width: 500px;
+  }
+  
+  /* Forms */
+  .form-container {
+    width: 100%;
+    max-width: 650px;
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: calc(var(--space) * 1.5);
+    margin-bottom: calc(var(--space) * 1.5);
+    box-shadow: var(--shadow);
+  }
+  
+  form {
+    width: 100%;
+  }
+  
+  .form-group {
+    margin-bottom: calc(var(--space) * 1.5);
+    width: 100%;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: calc(var(--space) * 0.5);
+    color: var(--text);
+    font-size: 1.1rem;
+  }
+  
+  /* Input Styling */
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    transition: border-color var(--time) ease;
+    background-color: var(--input-bg, #fff);
+    color: var(--text);
+  }
+  
+  input[type="number"]:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+  }
+  
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  /* Buttons */
+  button {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: transform var(--time) ease, box-shadow var(--time) ease;
+  }
+  
+  button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgb(242, 245, 242);
+  }
+  
+  button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  /* Error Message */
+  .error {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #d32f2f;
+    padding: 0.75rem;
+    border-radius: var(--radius);
+    margin: 1rem 0;
+    text-align: center;
+  }
+  
+  /* Recommendation Section */
+  .recommendation {
+    margin-top: 2rem;
+    background: var(--bg);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 1000px;
+  }
+  
+  .recommendation h3 {
+    margin-bottom: 1.5rem;
+    color: var(--text);
+    font-size: 1.5rem;
+  }
+
+  /* Component Cards */
+  .component-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .component-card {
+    background: var(--bg-2);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .component-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  .component-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    font-weight: bold;
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+
+  .component-card-price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    background: var(--accent);
+    color: white;
+    font-weight: bold;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .component-card-price-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  .component-card-price {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-width: 80px;
+    text-align: center;
+  }
+
+  .component-card-body {
+    display: flex;
+    padding: 1.5rem;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .component-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    flex-shrink: 0;
+  }
+
+  .component-card-details {
+    flex: 1;
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* Total Cost Card */
+  .total-cost-card {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .total-cost-card:hover {
+    transform: scale(1.02);
+  }
+
+  .total-cost-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .total-cost-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius);
+  }
+
+  /* Component Descriptions */
+  .component-descriptions {
+    background: var(--bg);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-top: 2rem;
+    box-shadow: var(--shadow);
+  }
+
+  .component-descriptions h4 {
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+
+  .component-descriptions ul {
+    list-style-position: inside;
+    color: var(--text);
+  }
+
+  .component-descriptions li {
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+
+  /* Loading Spinner */
+  .loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Use Case Buttons */
+  .use-case-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .use-case-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--bg-2);
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-weight: 500;
+    transition: all var(--time) ease;
+  }
+  
+  .use-case-button.active {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border-color: transparent;
+  }
+  
+  .use-case-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      padding: 1rem;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    .form-container {
+      padding: 1.5rem;
+    }
+  
+    .use-case-buttons {
+      grid-template-columns: 1fr;
+    }
+    
+    .component-cards-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .total-cost-card {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  }

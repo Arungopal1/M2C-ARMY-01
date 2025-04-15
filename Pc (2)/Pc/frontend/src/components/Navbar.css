@@ -1,0 +1,130 @@
+:root {
+  --bg: #fff;
+  --text: #333;
+  --primary: #6bbc6e;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Logo and Title */
+.logo-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.m2c-logo svg {
+  width: 50px;
+  height: 50px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.m2c-title {
+  font-size: 1.9rem;
+  font-weight: bold;
+  color: var(--primary);
+  margin-right: auto;
+}
+
+/* Right Section */
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Theme Toggle */
+.theme-toggle-btn {
+  background: rgb(0, 0, 0); /* Remove background */
+  border: black;
+  cursor: pointer;
+  padding: 0;
+  outline: black;
+}
+
+.theme-toggle-btn svg {
+  width: 20px; /* Adjust size as needed */
+  height: 20px; /* Adjust size as needed */
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle-btn:hover svg {
+  transform: rotate(180deg);
+}
+
+/* Profile */
+.profile-button {
+  background: none; /* Remove background */
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+}
+
+.profile-avatar {
+  width: 40px; /* Adjust size as needed */
+  height: 40px; /* Adjust size as needed */
+  background: none; /* Remove background */
+  color: var(--primary); /* Use primary color for the icon */
+  border-radius: 50%; /* Make it round */
+  border: 3px solid #c73232;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  animation: pulse 2s infinite;
+}
+
+.profile-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: blanchedalmond;
+  border: 1px solid #c73232;
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+  z-index: 10;
+  min-width: 150px;
+}
+
+.menu-item {
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text);
+  transition: background-color 0.3s ease;
+}
+
+.menu-item:hover {
+  background-color: #f4f6f8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: column;
+      padding: 1rem;
+  }
+
+  .logo-header {
+      margin-bottom: 1rem;
+  }
+
+  .right-section {
+      flex-direction: column;
+      gap: 0.5rem;
+  }
+}

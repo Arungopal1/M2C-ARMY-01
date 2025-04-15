@@ -1,0 +1,259 @@
+/* General Reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.5; /* Reduced from 1.6 */
+}
+
+/* Form Container */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0rem;
+  background-color: var(--bg-color, #f4f6f8);
+}
+
+.auth-form-container {
+  width: 100%;
+  max-width: 380px; /* Further reduced from 400px */
+  background-color: var(--card-bg, #fff);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.2rem; /* Reduced from 1.5rem */
+  border-radius: 8px;
+  margin: 0.5rem auto;
+  transition: all 0.3s ease;
+}
+
+/* Welcome Section */
+.auth-welcome {
+  text-align: left;
+  margin-bottom: 0.2rem; /* Further reduced from 0.3rem */
+}
+
+.auth-welcome h1 {
+  font-size: 1.1rem; /* Reduced from 1.25rem */
+  color: var(--text-primary, #333);
+  margin-bottom: 0.1rem; /* Further reduced from 0.15rem */
+  font-weight: 600;
+}
+
+.auth-welcome p {
+  font-size: 0.8rem; /* Reduced from 0.85rem */
+  color: var(--text-secondary, #666);
+}
+
+/* Form Header */
+h2 {
+  font-size: 1.1rem; /* Reduced from 1.25rem */
+  margin-bottom: 0.5rem; /* Reduced from 0.75rem */
+  color: var(--text-primary, #333);
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Error Message */
+.auth-error {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: #d32f2f;
+  padding: 0.3rem; /* Reduced from 0.4rem */
+  border-radius: 4px;
+  margin-bottom: 0.4rem; /* Reduced from 0.5rem */
+  font-size: 0.8rem; /* Reduced from 0.85rem */
+  text-align: center;
+}
+
+/* Success Message */
+.auth-success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #43a047;
+  padding: 0.3rem; /* Reduced from 0.4rem */
+  border-radius: 4px;
+  margin-bottom: 0.4rem; /* Reduced from 0.5rem */
+  font-size: 0.8rem; /* Reduced from 0.85rem */
+  text-align: center;
+}
+
+/* Form Fields */
+.form-group {
+  margin-bottom: 0.3rem; /* Further reduced from 0.5rem */
+}
+
+label {
+  display: block;
+  font-size: 0.75rem; /* Further reduced from 0.8rem */
+  margin-bottom: 0.1rem; /* Further reduced from 0.15rem */
+  color: var(--text-secondary, #555);
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  padding: 0.4rem; /* Further reduced from 0.5rem */
+  font-size: 0.8rem; /* Further reduced from 0.85rem */
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  background-color: var(--input-bg, #fff);
+  color: var(--text-primary, #333);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary-color, #007bff);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+/* Buttons */
+.auth-button {
+  display: inline-block;
+  width: 100%;
+  padding: 0.4rem; /* Further reduced from 0.5rem */
+  font-size: 0.8rem; /* Further reduced from 0.85rem */
+  font-weight: 600;
+  color: #fff;
+  background-color: var(--primary-color, #007bff);
+  border: none;
+  border-radius: 3px; /* Reduced from 4px */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.3rem; /* Further reduced from 0.4rem */
+}
+
+.auth-button:hover {
+  background-color: var(--primary-hover, #0056b3);
+  transform: translateY(-0.5px); /* Reduced from -1px */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+}
+
+.auth-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.auth-button:disabled {
+  background-color: var(--disabled-color, #ccc);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Links */
+.auth-links {
+  margin-top: 0.5rem; /* Reduced from 0.75rem */
+  text-align: center;
+  font-size: 0.8rem; /* Reduced from 0.85rem */
+}
+
+.auth-link, .forgot-password, .signup-prompt a {
+  color: var(--primary-color, #007bff);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.auth-link:hover, .forgot-password:hover, .signup-prompt a:hover {
+  text-decoration: underline;
+  color: var(--primary-hover, #0056b3);
+}
+
+.forgot-password {
+  display: block;
+  margin-bottom: 0.4rem; /* Reduced from 0.5rem */
+}
+
+/* Add required field indicator */
+label .required, 
+label[for="email"]::after,
+label[for="password"]::after {
+  content: " *";
+  color: #d32f2f;
+}
+
+/* Special styling for signup form */
+.auth-form-container form:has(input#confirm-password) .form-group {
+  margin-bottom: 0.4rem; /* Reduced from 0.5rem */
+}
+
+/* Special styling for login form to make it more compact */
+.auth-form-container form:has(button[type="submit"]:not(:has(+ .signup-prompt))) .form-group {
+  margin-bottom: 0.4rem; /* Specific reduction for login form */
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .auth-form-container {
+    padding: 0.8rem; /* Further reduced from 1rem */
+    margin: 0.25rem auto;
+    max-width: 100%;
+  }
+  
+  .auth-welcome h1 {
+    font-size: 0.9rem; /* Further reduced from 1rem */
+  }
+  
+  h2 {
+    font-size: 0.9rem; /* Further reduced from 1rem */
+    margin-bottom: 0.3rem; /* Further reduced from 0.4rem */
+  }
+  
+  .form-group {
+    margin-bottom: 0.2rem; /* Further reduced from 0.3rem */
+  }
+  
+  input {
+    padding: 0.3rem; /* Further reduced from 0.4rem */
+  }
+  
+  .auth-button {
+    padding: 0.3rem; /* Further reduced from 0.4rem */
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-primary: #f0f0f0;
+    --text-secondary: #b0b0b0;
+    --border-color: #333;
+    --input-bg: #2d2d2d;
+    --primary-color: #3f8cff;
+    --primary-hover: #5a9dff;
+    --disabled-color: #555;
+  }
+}
+
+/* Light mode variables */
+:root {
+  --bg-color: #f4f6f8;
+  --card-bg: #fff;
+  --text-primary: #333;
+  --text-secondary: #666;
+  --border-color: #ddd;
+  --input-bg: #fff;
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --disabled-color: #ccc;
+}
+
+/* Theme class for manual theme switching */
+.dark-theme {
+  --bg-color: #121212;
+  --card-bg: #1e1e1e;
+  --text-primary: #f0f0f0;
+  --text-secondary: #b0b0b0;
+  --border-color: #333;
+  --input-bg: #2d2d2d;
+  --primary-color: #3f8cff;
+  --primary-hover: #5a9dff;
+  --disabled-color: #555;
+}

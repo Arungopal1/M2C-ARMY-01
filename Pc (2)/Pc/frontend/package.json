@@ -1,0 +1,22 @@
+{
+  "name": "pc_builder_project",
+  "version": "1.0.0",
+  "description": "PC Builder AI Frontend",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^1.8.3",
+    "firebase": "^11.4.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^7.4.0"
+  },
+  "devDependencies": {
+    "vite": "^6.2.2"
+  },
+  "author": "Arun Gopal",
+  "license": "MIT"
+}
